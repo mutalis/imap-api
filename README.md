@@ -10,10 +10,15 @@ rails g migration enable_uuid_extension
 
 rails g scaffold orchestra name start_date:datetime end_date:datetime
 
+In order to create DB, the Role must be created first.
 > createuser -U postgres -P -e -s orchestras
 
 rake db:create
 
+rails g scaffold email username quota password
+
+
+Para cuando se necesita separar los controllers del API de los de la Web App se usa namespaces:
 
 Rails.application.routes.draw do
   namespace :api, path: '/', constraints: { subdomain: 'api' } do
