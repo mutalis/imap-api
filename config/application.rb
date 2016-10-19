@@ -30,5 +30,7 @@ module ImapApi
 
     # Sets the primary key as UUID
     config.active_record.primary_key = :uuid
+    # Sets the schema format to Sql.
+    config.active_record.schema_format = :sql
   end
 end
