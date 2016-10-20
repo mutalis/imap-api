@@ -66,7 +66,7 @@ CREATE TABLE ar_internal_metadata (
 CREATE TABLE emails (
     id uuid DEFAULT uuid_generate_v4() NOT NULL,
     username character varying,
-    quota character varying,
+    quota integer,
     password character varying,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
