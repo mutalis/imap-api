@@ -6,7 +6,7 @@ class CreatingEmailsTest < ActionDispatch::IntegrationTest
 
   test 'creates emails' do
     post '/emails',
-         params: { email: { username: 'ana', quota: 200, password: 'password' } }.to_json,
+         params: { email: { username: 'ana', quota: 200, password: 'password' } }, as: :json,
          headers: { Accept: Mime[:json], 'Content-Type': Mime[:json].to_s }
 
     assert_equal 201, response.status
@@ -18,7 +18,7 @@ class CreatingEmailsTest < ActionDispatch::IntegrationTest
 
   test 'does not create emails with username, quota or password nil' do
     post '/emails',
-         params: { email: { username: nil, quota: nil, password: nil } }.to_json,
+         params: { email: { username: nil, quota: nil, password: nil } }, as: :json,
          headers: { Accept: Mime[:json], 'Content-Type': Mime[:json].to_s }
 
     assert_equal 422, response.status
