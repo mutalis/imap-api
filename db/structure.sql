@@ -83,6 +83,20 @@ CREATE TABLE schema_migrations (
 
 
 --
+-- Name: users; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE users (
+    id uuid DEFAULT uuid_generate_v4() NOT NULL,
+    username character varying,
+    password character varying,
+    auth_token character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
 -- Name: ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -107,11 +121,19 @@ ALTER TABLE ONLY schema_migrations
 
 
 --
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20161019194525'), ('20161019204934');
+INSERT INTO schema_migrations (version) VALUES ('20161019194525'), ('20161019204934'), ('20161025185707');
 
 

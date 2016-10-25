@@ -1,6 +1,7 @@
 module V2
   # Emails resource
   class EmailsController < VersionController
+    before_action :authenticate
     before_action :set_email, only: [:show, :update, :destroy]
 
     # GET /emails
@@ -40,6 +41,23 @@ module V2
     def destroy
       @email.destroy
       head 204
+    end
+
+    protected
+
+    def authenticate
+      authenticate_token || render_unauthorized
+    end
+
+    def authenticate_token
+      authenticate_with_http_token do |token, _options|
+        User.find_by(auth_token: token)
+      end
+    end
+
+    def render_unauthorized
+      self.headers['WWW-Authenticate'] = 'Token realm="Emails"'
+      render json: 'Bad credentials', status: 401
     end
 
     private

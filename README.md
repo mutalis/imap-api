@@ -39,6 +39,7 @@ Query strings:
 curl http://api.example.com:3000/users?search=musica
 
 
+
 Para ver solo los Headers de la respuesta:
 
 curl -I http://api.example.com:3000/users
@@ -55,6 +56,7 @@ curl -i http://api.example.com:3000/emails/e85c2a8e-4cae-470e-875e-dd6023bf37cf
 Send custom request headers with the -H option
 
 curl -IH "Accept: application/json" http://api.example.com:3000/users
+
 
 
 Ver el contenido en el formato seleccionado:
@@ -74,6 +76,17 @@ curl -i -X POST -H "Content-Type:application/json; charset=utf-8" -d '{"email": 
 curl -i -X POST -H "Content-Type:application/json; charset=utf-8" -d '{ "username": "lau", "quota": 200, "password": "pass" }' http://api.example.com:3000/emails
 
 curl -H "Content-Type:application/json; charset=utf-8" -d '{"orchestra": {"name":"Anzo","start_date":"1950-07-14 20:10:15", "end_date":"2015-05-29 16:20:05"}}' http://localhost:3000/orchestras
+
+
+
+Token based authentication:
+
+curl -iH "Authorization: Token token=29468cdafbd0b1c8a2cb81ecd7a8e517" http://api.example.com:3000/v2/emails
+
+Using fake token:
+The client ask for JSON, then the response headers must include the header: Content-Type: application/json; charset=utf-8
+
+curl -iH "Authorization: Token token=fake" -H "Accept: application/json" http://api.example.com:3000/v2/emails
 
 
 
