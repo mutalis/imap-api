@@ -56,7 +56,7 @@ module V2
     end
 
     def render_unauthorized
-      self.headers['WWW-Authenticate'] = 'Token realm="Emails"'
+      headers['WWW-Authenticate'] = 'Token realm="Emails"'
       render json: 'Bad credentials', status: 401
     end
 
