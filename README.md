@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 end
 
 
+rails t -vfb test/integration/routes_test.rb
+
 ==========
 CURL
 
@@ -115,3 +117,6 @@ psql> CREATE DATABASE dancercity OWNER dancercity ENCODING 'UTF8' TEMPLATE templ
 >dropuser -U postgres dancercity
 
 >dropdb -U postgres dancercity
+
+
+=====

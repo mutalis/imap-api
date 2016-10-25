@@ -8,7 +8,7 @@ class UpdatingEmailsTest < ActionDispatch::IntegrationTest
   end
 
   test 'successful update' do
-    patch "/emails/#{@email.id}",
+    patch "/#{api_version}/emails/#{@email.id}",
           params: { email: { password: 'new password' } }.to_json,
           headers: { Accept: Mime[:json], 'Content-Type': Mime[:json].to_s }
 
@@ -17,7 +17,7 @@ class UpdatingEmailsTest < ActionDispatch::IntegrationTest
   end
 
   test 'unsuccessful update on short password' do
-    patch "/emails/#{@email.id}",
+    patch "/#{api_version}/emails/#{@email.id}",
           params: { email: { password: 'short' } }.to_json,
           headers: { Accept: Mime[:json], 'Content-Type': Mime[:json].to_s }
 

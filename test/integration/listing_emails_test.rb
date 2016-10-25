@@ -9,7 +9,7 @@ class ListingEmailsTest < ActionDispatch::IntegrationTest
     Email.create!(username: 'ana', quota: 200, password: 'password')
 
     # get '/emails', {}, Accept: Mime[:json]
-    get '/emails', params: {}, headers: { Accept: Mime[:json] }
+    get "/#{api_version}/emails", params: {}, headers: { Accept: Mime[:json] }
     assert_equal 200, response.status
     refute_empty response.body
 
@@ -20,14 +20,14 @@ class ListingEmailsTest < ActionDispatch::IntegrationTest
   end
 
   test 'returns emails in JSON' do
-    get '/emails', params: {}, headers: { Accept: Mime[:json] }
+    get "/#{api_version}/emails", params: {}, headers: { Accept: Mime[:json] }
     assert_equal 200, response.status
     assert_equal Mime[:json], response.content_type
   end
 
   test 'returns email by id' do
     email = Email.create!(username: 'ana', quota: 200, password: 'password')
-    get "/emails/#{email.id}"
+    get "/#{api_version}/emails/#{email.id}"
     assert_equal 200, response.status
 
     email_response = parse_j(response.body)

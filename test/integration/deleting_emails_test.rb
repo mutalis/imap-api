@@ -8,7 +8,7 @@ class DeletingEmailsTest < ActionDispatch::IntegrationTest
   end
 
   test 'deletes existing email' do
-    delete "/emails/#{@email.id}"
+    delete "/#{api_version}/emails/#{@email.id}"
     assert_equal 204, response.status
   end
 end

@@ -10,4 +10,8 @@ class ActiveSupport::TestCase
   def parse_j(response_body)
     JSON.parse(response_body, symbolize_names: true)
   end
+
+  def api_version
+    'v2'
+  end
 end
