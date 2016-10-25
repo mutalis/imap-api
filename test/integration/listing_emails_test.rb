@@ -13,10 +13,9 @@ class ListingEmailsTest < ActionDispatch::IntegrationTest
 
     # get '/emails', {}, Accept: Mime[:json]
     get "/#{api_version}/emails",
-        headers: { Accept: Mime[:json], Authorization: :"Token token=#{@user.auth_token}" }
+        headers: { Accept: Mime[:json], Authorization: token_header(@user.auth_token) }
     assert_equal 200, response.status
     refute_empty response.body
-
     emails = parse_j(response.body)
     usernames = emails.map { |z| z[:username] }
     assert_includes usernames, 'lau'
@@ -25,7 +24,7 @@ class ListingEmailsTest < ActionDispatch::IntegrationTest
 
   test 'returns emails in JSON' do
     get "/#{api_version}/emails",
-        headers: { Accept: Mime[:json], Authorization: :"Token token=#{@user.auth_token}" }
+        headers: { Accept: Mime[:json], Authorization: token_header(@user.auth_token) }
     assert_equal 200, response.status
     assert_equal Mime[:json], response.content_type
   end
@@ -33,7 +32,7 @@ class ListingEmailsTest < ActionDispatch::IntegrationTest
   test 'returns email by id' do
     email = Email.create!(username: 'ana', quota: 200, password: 'password')
     get "/#{api_version}/emails/#{email.id}",
-        headers: { Accept: Mime[:json], Authorization: :"Token token=#{@user.auth_token}" }
+        headers: { Accept: Mime[:json], Authorization: token_header(@user.auth_token) }
     assert_equal 200, response.status
 
     email_response = parse_j(response.body)
@@ -42,7 +41,7 @@ class ListingEmailsTest < ActionDispatch::IntegrationTest
 
   test 'valid authentication token' do
     get "/#{api_version}/emails",
-        headers: { Accept: Mime[:json], Authorization: :"Token token=#{@user.auth_token}" }
+        headers: { Accept: Mime[:json], Authorization: token_header(@user.auth_token) }
     assert_equal 200, response.status
     assert_equal Mime[:json], response.content_type
   end

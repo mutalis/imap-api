@@ -10,7 +10,7 @@ class DeletingEmailsTest < ActionDispatch::IntegrationTest
 
   test 'deletes existing email' do
     delete "/#{api_version}/emails/#{@email.id}",
-           headers: { Accept: Mime[:json], Authorization: :"Token token=#{@user.auth_token}" }
+           headers: { Accept: Mime[:json], Authorization: token_header(@user.auth_token) }
     assert_equal 204, response.status
   end
 end

@@ -11,7 +11,7 @@ class UpdatingEmailsTest < ActionDispatch::IntegrationTest
   test 'successful update' do
     patch "/#{api_version}/emails/#{@email.id}",
           params: { email: { password: 'new password' } }.to_json,
-          headers: { Accept: Mime[:json], Authorization: :"Token token=#{@user.auth_token}",
+          headers: { Accept: Mime[:json], Authorization: token_header(@user.auth_token),
                      'Content-Type': Mime[:json].to_s }
 
     assert_equal 200, response.status
@@ -21,7 +21,7 @@ class UpdatingEmailsTest < ActionDispatch::IntegrationTest
   test 'unsuccessful update on short password' do
     patch "/#{api_version}/emails/#{@email.id}",
           params: { email: { password: 'short' } }.to_json,
-          headers: { Accept: Mime[:json], Authorization: :"Token token=#{@user.auth_token}",
+          headers: { Accept: Mime[:json], Authorization: token_header(@user.auth_token),
                      'Content-Type': Mime[:json].to_s }
 
     assert_equal 422, response.status

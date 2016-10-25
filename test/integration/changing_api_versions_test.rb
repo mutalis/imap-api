@@ -13,7 +13,7 @@ class ChangingApiVersionsTest < ActionDispatch::IntegrationTest
   test '/v2 returns version 2' do
     @user = User.create!
     get '/v2/emails',
-        headers: { Accept: Mime[:json], Authorization: :"Token token=#{@user.auth_token}" }
+        headers: { Accept: Mime[:json], Authorization: token_header(@user.auth_token) }
     assert_equal 200, response.status
     refute_empty response.body
   end

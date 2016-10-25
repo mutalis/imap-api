@@ -14,4 +14,8 @@ class ActiveSupport::TestCase
   def api_version
     'v2'
   end
+
+  def token_header(token)
+    ActionController::HttpAuthentication::Token.encode_credentials(token)
+  end
 end

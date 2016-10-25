@@ -10,7 +10,7 @@ class CreatingEmailsTest < ActionDispatch::IntegrationTest
   test 'creates emails' do
     post "/#{api_version}/emails",
          params: { email: { username: 'ana', quota: 200, password: 'password' } }, as: :json,
-         headers: { Accept: Mime[:json], Authorization: :"Token token=#{@user.auth_token}",
+         headers: { Accept: Mime[:json], Authorization: token_header(@user.auth_token),
                     'Content-Type': Mime[:json].to_s }
 
     assert_equal 201, response.status
@@ -24,7 +24,7 @@ class CreatingEmailsTest < ActionDispatch::IntegrationTest
   test 'does not create emails with username, quota or password nil' do
     post "/#{api_version}/emails",
          params: { email: { username: nil, quota: nil, password: nil } }, as: :json,
-         headers: { Accept: Mime[:json], Authorization: :"Token token=#{@user.auth_token}",
+         headers: { Accept: Mime[:json], Authorization: token_header(@user.auth_token),
                     'Content-Type': Mime[:json].to_s }
 
     assert_equal 422, response.status
