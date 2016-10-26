@@ -29,6 +29,10 @@ end
 
 rails t -vfb test/integration/routes_test.rb
 
+
+rails g serializer email
+
+
 ==========
 CURL
 
@@ -88,7 +92,7 @@ The client ask for JSON, then the response headers must include the header: Cont
 
 curl -iH "Authorization: Token token=fake" -H "Accept: application/json" http://api.example.com:3000/v2/emails
 
-
+curl -iH "Authorization: Token token=29468cdafbd0b1c8a2cb81ecd7a8e517" http://api.example.com:3000/v2/emails/e85c2a8e-4cae-470e-875e-dd6023bf37cf
 
 ======
 
