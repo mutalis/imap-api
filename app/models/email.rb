@@ -10,6 +10,15 @@
 #  updated_at :datetime         not null
 #  domain_id  :uuid
 #
+# Indexes
+#
+#  index_emails_on_domain_id  (domain_id) UNIQUE
+#  index_emails_on_username   (username) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_728c164f32  (domain_id => domains.id) ON DELETE => cascade
+#
 class Email < ApplicationRecord
   # ActiveRecord::Base.include_root_in_json = true
   validates :username, :quota, :password, presence: true

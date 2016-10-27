@@ -180,3 +180,5 @@ annotate --exclude tests,fixtures,factories,serializers
 To annotate routes.rb:
 
 annotate --routes
+
+To automatically annotate every time you run db:migrate, either run rails g annotate:install or add Annotate.load_tasks to your `Rakefile`.
