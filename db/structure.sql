@@ -60,6 +60,19 @@ CREATE TABLE ar_internal_metadata (
 
 
 --
+-- Name: domains; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE domains (
+    id uuid DEFAULT uuid_generate_v4() NOT NULL,
+    name character varying,
+    quota integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
 -- Name: emails; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -105,6 +118,14 @@ ALTER TABLE ONLY ar_internal_metadata
 
 
 --
+-- Name: domains_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY domains
+    ADD CONSTRAINT domains_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: emails_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -134,6 +155,6 @@ ALTER TABLE ONLY users
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20161019194525'), ('20161019204934'), ('20161025185707');
+INSERT INTO schema_migrations (version) VALUES ('20161019194525'), ('20161019204934'), ('20161025185707'), ('20161026000751');
 
 
