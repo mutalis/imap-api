@@ -158,6 +158,13 @@ CREATE UNIQUE INDEX index_emails_on_domain_id ON emails USING btree (domain_id);
 
 
 --
+-- Name: index_emails_on_username; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_emails_on_username ON emails USING btree (username);
+
+
+--
 -- Name: fk_rails_728c164f32; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 

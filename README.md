@@ -33,6 +33,15 @@ class AddDomainRefToEmails < ActiveRecord::Migration[5.0]
 end
 
 
+rails g migration AddUsernameIndexToEmail
+
+class AddUsernameIndexToEmail < ActiveRecord::Migration[5.0]
+  def change
+    add_index :emails, :username, unique: true
+  end
+end
+
+
 
 
 
