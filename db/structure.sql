@@ -82,7 +82,8 @@ CREATE TABLE emails (
     quota integer,
     password character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    domain_id uuid
 );
 
 
@@ -150,11 +151,26 @@ ALTER TABLE ONLY users
 
 
 --
+-- Name: index_emails_on_domain_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_emails_on_domain_id ON emails USING btree (domain_id);
+
+
+--
+-- Name: fk_rails_728c164f32; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY emails
+    ADD CONSTRAINT fk_rails_728c164f32 FOREIGN KEY (domain_id) REFERENCES domains(id) ON DELETE CASCADE;
+
+
+--
 -- PostgreSQL database dump complete
 --
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20161019194525'), ('20161019204934'), ('20161025185707'), ('20161026000751');
+INSERT INTO schema_migrations (version) VALUES ('20161019194525'), ('20161019204934'), ('20161025185707'), ('20161026000751'), ('20161027004730');
 
 

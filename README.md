@@ -6,6 +6,9 @@ rails new tango-orchestras --api
 
 bundle exec spring binstub --all
 
+
+Migrations:
+
 rails g migration enable_uuid_extension
 
 rails g scaffold orchestra name start_date:datetime end_date:datetime
@@ -17,6 +20,24 @@ rake db:create
 
 rails g scaffold email username quota password
 
+rails g serializer email
+
+
+rails g migration AddDomainRefToEmails domain:references
+
+class AddDomainRefToEmails < ActiveRecord::Migration[5.0]
+  def change
+    add_reference :emails, :domain, type: :uuid, index: { unique: true }
+    add_foreign_key :emails, :domains, on_delete: :cascade
+  end
+end
+
+
+
+
+
+
+Routes:
 
 Para cuando se necesita separar los controllers del API de los de la Web App se usa namespaces:
 
@@ -30,7 +51,7 @@ end
 rails t -vfb test/integration/routes_test.rb
 
 
-rails g serializer email
+
 
 
 ==========
