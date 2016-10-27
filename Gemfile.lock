@@ -43,6 +43,9 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    annotate (2.7.1)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 12.0)
     arel (7.1.4)
     builder (3.2.2)
     byebug (9.0.6)
@@ -61,9 +64,10 @@ GEM
       jsonapi-renderer (= 0.1.1.beta1)
     jsonapi-parser (0.1.1.beta3)
     jsonapi-renderer (0.1.1.beta1)
-    listen (3.0.8)
+    listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -106,9 +110,10 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.3.0)
-    rb-fsevent (0.9.7)
+    rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    ruby_dep (1.5.0)
     spring (2.0.0)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -134,14 +139,15 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (= 0.10.2)
+  annotate (= 2.7.1)
   byebug
   dotenv-rails (= 2.1.1)
-  listen (~> 3.0.5)
+  listen (= 3.1.5)
   pg (= 0.19.0)
-  puma (~> 3.0)
+  puma (= 3.6.0)
   rails (= 5.0.0.1)
   spring
-  spring-watcher-listen (~> 2.0.0)
+  spring-watcher-listen (= 2.0.1)
   tzinfo-data
 
 BUNDLED WITH

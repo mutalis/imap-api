@@ -18,7 +18,7 @@ In order to create DB, the Role must be created first.
 
 rake db:create
 
-rails g scaffold email username quota password
+rails g scaffold email username quota:integer password
 
 rails g serializer email
 
@@ -167,3 +167,16 @@ psql> CREATE DATABASE dancercity OWNER dancercity ENCODING 'UTF8' TEMPLATE templ
 
 
 =====
+Documentation:
+
+To annotate just your models, tests, and factories:
+
+annotate --exclude fixtures
+
+To annotate just your models:
+
+annotate --exclude tests,fixtures,factories,serializers
+
+To annotate routes.rb:
+
+annotate --routes
