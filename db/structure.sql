@@ -154,7 +154,7 @@ ALTER TABLE ONLY users
 -- Name: index_emails_on_domain_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_emails_on_domain_id ON emails USING btree (domain_id);
+CREATE INDEX index_emails_on_domain_id ON emails USING btree (domain_id);
 
 
 --
