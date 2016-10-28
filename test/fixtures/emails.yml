@@ -1,11 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  username: MyString
-  quota: MyString
-  password: MyString
-
-two:
-  username: MyString
-  quota: MyString
-  password: MyString
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+#
+# one:
+#   username: MyString
+#   quota: MyString
+#   password: MyString
+#
+# two:
+#   username: MyString
+#   quota: MyString
+#   password: MyString
