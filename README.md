@@ -166,6 +166,9 @@ psql> CREATE DATABASE dancercity OWNER dancercity ENCODING 'UTF8' TEMPLATE templ
 >dropdb -U postgres dancercity
 
 
+Loads Factories (sample data) into the current environment's database:
+rake dev:loads_factories
+
 =====
 Documentation:
 
