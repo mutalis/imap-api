@@ -6,6 +6,7 @@ if Rails.env.development? || Rails.env.test?
     task(loads_factories: :environment) do
       include FactoryGirl::Syntax::Methods
       create_list(:domain_with_emails, 10).inspect
+      User.create!
     end
   end
 end
