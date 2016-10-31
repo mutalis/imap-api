@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     end
     namespace :v2 do
       resources :emails
+      resources :domains
     end
   end
 end

@@ -1,26 +1,26 @@
 require 'test_helper'
 
-# UpdatingEmailsTest
-class UpdatingEmailsTest < ActionDispatch::IntegrationTest
+# UpdatingDomainsTest
+class UpdatingDomainsTest < ActionDispatch::IntegrationTest
   setup do
     host! 'api.example.com'
-    @email = create(:email)
+    @domain = create(:domain)
     @user = create(:user)
   end
 
   test 'successful update' do
-    patch "/#{api_version}/emails/#{@email.id}",
-          params: { email: { password: 'new password' } }.to_json,
+    patch "/#{api_version}/domains/#{@domain.id}",
+          params: { domain: { name: 'new name' } }.to_json,
           headers: { Accept: Mime[:json], Authorization: token_header(@user.auth_token),
                      'Content-Type': Mime[:json].to_s }
 
     assert_equal 200, response.status
-    assert_equal 'new password', @email.reload.password
+    assert_equal 'new name', @domain.reload.name
   end
 
-  test 'unsuccessful update on short password' do
-    patch "/#{api_version}/emails/#{@email.id}",
-          params: { email: { password: 'short' } }.to_json,
+  test 'unsuccessful update on short name' do
+    patch "/#{api_version}/domains/#{@domain.id}",
+          params: { domain: { name: 'n' } }.to_json,
           headers: { Accept: Mime[:json], Authorization: token_header(@user.auth_token),
                      'Content-Type': Mime[:json].to_s }
 

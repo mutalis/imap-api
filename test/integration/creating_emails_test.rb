@@ -4,12 +4,13 @@ require 'test_helper'
 class CreatingEmailsTest < ActionDispatch::IntegrationTest
   setup do
     host! 'api.example.com'
-    @user = User.create!
+    @user = create(:user)
+    @email = create(:email)
   end
 
   test 'creates emails' do
     post "/#{api_version}/emails",
-         params: { email: { username: 'ana', quota: 200, password: 'password' } }, as: :json,
+         params: { email: { username: @email.username, quota: @email.quota, password: @email.password, domain_id: @email.domain_id } }, as: :json,
          headers: { Accept: Mime[:json], Authorization: token_header(@user.auth_token),
                     'Content-Type': Mime[:json].to_s }
 
@@ -23,7 +24,7 @@ class CreatingEmailsTest < ActionDispatch::IntegrationTest
 
   test 'does not create emails with username, quota or password nil' do
     post "/#{api_version}/emails",
-         params: { email: { username: nil, quota: nil, password: nil } }, as: :json,
+         params: { email: { username: nil, quota: nil, password: nil, domain_id: nil } }, as: :json,
          headers: { Accept: Mime[:json], Authorization: token_header(@user.auth_token),
                     'Content-Type': Mime[:json].to_s }
 

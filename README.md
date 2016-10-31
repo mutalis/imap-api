@@ -122,7 +122,10 @@ The client ask for JSON, then the response headers must include the header: Cont
 
 curl -iH "Authorization: Token token=fake" -H "Accept: application/json" http://api.example.com:3000/v2/emails
 
-curl -iH "Authorization: Token token=29468cdafbd0b1c8a2cb81ecd7a8e517" http://api.example.com:3000/v2/emails/e85c2a8e-4cae-470e-875e-dd6023bf37cf
+curl -iH "Authorization: Token token=2dcc9c915c3a7ff5e2a7cbe0b132f453" http://api.example.com:3000/v2/emails/571e99ae-c28e-4e3e-be0c-171998e16bb8
+
+
+curl -iH "Authorization: Token token=2dcc9c915c3a7ff5e2a7cbe0b132f453" -X POST -H "Content-Type:application/json; charset=utf-8" -d '{ "username": "lau", "quota": 200, "password": "12345678", "domain_id": "1229997f-2692-406c-b726-c64cf71beffa" }' http://api.example.com:3000/v2/emails
 
 ======
 

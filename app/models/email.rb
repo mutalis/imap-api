@@ -12,8 +12,8 @@
 #
 # Indexes
 #
-#  index_emails_on_domain_id  (domain_id) UNIQUE
-#  index_emails_on_username   (username) UNIQUE
+#  index_emails_on_domain_id  (domain_id)
+#  index_emails_on_username   (username)
 #
 # Foreign Keys
 #
@@ -22,7 +22,7 @@
 class Email < ApplicationRecord
   # ActiveRecord::Base.include_root_in_json = true
   validates :username, :quota, :password, presence: true
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 8 }
 
   belongs_to :domain, inverse_of: :emails
 end

@@ -43,23 +43,6 @@ module V2
       head 204
     end
 
-    protected
-
-    def authenticate
-      authenticate_token || render_unauthorized
-    end
-
-    def authenticate_token
-      authenticate_with_http_token do |token, _options|
-        User.find_by(auth_token: token)
-      end
-    end
-
-    def render_unauthorized
-      headers['WWW-Authenticate'] = 'Token realm="Emails"'
-      render json: 'Bad credentials', status: 401
-    end
-
     private
 
     # Use callbacks to share common setup or constraints between actions.
@@ -69,7 +52,7 @@ module V2
 
     # Only allow a trusted parameter "white list" through.
     def email_params
-      params.require(:email).permit(:username, :quota, :password)
+      params.require(:email).permit(:username, :quota, :password, :domain_id)
     end
   end
 end
