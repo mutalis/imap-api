@@ -13,4 +13,6 @@ class Domain < ApplicationRecord
   validates :name, length: { minimum: 2 }
 
   has_many :emails, inverse_of: :domain
+
+  default_scope { order(name: :asc) }
 end

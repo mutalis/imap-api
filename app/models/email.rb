@@ -25,4 +25,6 @@ class Email < ApplicationRecord
   validates :password, length: { minimum: 8 }
 
   belongs_to :domain, inverse_of: :emails
+
+  default_scope { order(username: :asc) }
 end
