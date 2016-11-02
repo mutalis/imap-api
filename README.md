@@ -124,8 +124,7 @@ curl -iH "Authorization: Token token=fake" -H "Accept: application/json" http://
 
 curl -iH "Authorization: Token token=2dcc9c915c3a7ff5e2a7cbe0b132f453" http://api.example.com:3000/v2/emails/571e99ae-c28e-4e3e-be0c-171998e16bb8
 
-
-curl -iH "Authorization: Token token=2dcc9c915c3a7ff5e2a7cbe0b132f453" -X POST -H "Content-Type:application/json; charset=utf-8" -d '{ "username": "lau", "quota": 200, "password": "12345678", "domain_id": "1229997f-2692-406c-b726-c64cf71beffa" }' http://api.example.com:3000/v2/emails
+curl -iH "Authorization: Token token=e8a947943367d7f358794f6141ece2ca" -X POST -H "Content-Type:application/json; charset=utf-8" -d '{ "username": "lau", "quota": 200, "password": "12345678", "domain_id": "ad0674ef-661b-4ab6-8ff3-b791e13c3abb" }' http://api.example.com:3000/v2/emails
 
 ======
 

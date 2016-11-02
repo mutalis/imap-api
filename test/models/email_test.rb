@@ -1,7 +1,12 @@
 require 'test_helper'
 
+# EmailTest
 class EmailTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @email = build(:email)
+  end
+
+  test 'valid email' do
+    assert @email.valid?
+  end
 end

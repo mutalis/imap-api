@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 class Domain < ApplicationRecord
-  validates :name, :quota, presence: true
+  validates :quota, presence: true
   validates :name, length: { minimum: 2 }
 
   has_many :emails, inverse_of: :domain
