@@ -4,8 +4,9 @@ Rails.application.routes.draw do
       resources :emails
     end
     namespace :v2 do
-      resources :emails
-      resources :domains
+      resources :domains do
+        resources :emails, shallow: true
+      end
     end
   end
 end
