@@ -2,11 +2,12 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.5.3
--- Dumped by pg_dump version 9.5.3
+-- Dumped from database version 9.6.1
+-- Dumped by pg_dump version 9.6.1
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
@@ -111,7 +112,7 @@ CREATE TABLE users (
 
 
 --
--- Name: ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: ar_internal_metadata ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY ar_internal_metadata
@@ -119,7 +120,7 @@ ALTER TABLE ONLY ar_internal_metadata
 
 
 --
--- Name: domains_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: domains domains_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY domains
@@ -127,7 +128,7 @@ ALTER TABLE ONLY domains
 
 
 --
--- Name: emails_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: emails emails_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY emails
@@ -135,7 +136,7 @@ ALTER TABLE ONLY emails
 
 
 --
--- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY schema_migrations
@@ -143,7 +144,7 @@ ALTER TABLE ONLY schema_migrations
 
 
 --
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY users
@@ -165,7 +166,7 @@ CREATE INDEX index_emails_on_username ON emails USING btree (username);
 
 
 --
--- Name: fk_rails_728c164f32; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: emails fk_rails_728c164f32; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY emails

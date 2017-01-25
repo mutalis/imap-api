@@ -4,31 +4,39 @@ module V2
     before_action :authenticate
     before_action :set_email, only: [:show, :update, :destroy]
 
-    # GET /emails
+    # GET /v2/domains/:domain_id/emails
     def index
-      @emails = Email.all
+      @emails = Domain.find(params[:domain_id]).emails
 
-      render json: @emails, status: 200
-    end
-
-    # GET /emails/1
-    def show
-      render json: @email, status: :ok
-    end
-
-    # POST /emails
-    def create
-      @email = Email.new(email_params)
-
-      if @email.save
-        # render json: @email, status: :created, location: url_for(['v2', @email])
-        render json: @email, status: :created, location: v2_email_url(@email)
+      if @emails
+        render json: @emails, status: 200
       else
         render json: @email.errors, status: :unprocessable_entity
       end
     end
 
-    # PATCH/PUT /emails/1
+    # GET /v2/emails/:id
+    def show
+      render json: @email, status: :ok
+    end
+
+    # POST /v2/domains/:domain_id/emails
+    def create
+      domain = Domain.find(params[:domain_id])
+
+      if domain
+        @email = Email.new(email_params)
+        @email.domain = domain
+          if @email.save
+            # render json: @email, status: :created, location: url_for(['v2', @email])
+            render json: @email, status: :created, location: v2_email_url(@email)
+          else
+            render json: @email.errors, status: :unprocessable_entity
+          end
+      end
+    end
+
+    # PATCH/PUT /v2/emails/:id
     def update
       if @email.update(email_params)
         render json: @email, status: 200
@@ -37,7 +45,7 @@ module V2
       end
     end
 
-    # DELETE /emails/1
+    # DELETE /v2/emails/:id
     def destroy
       @email.destroy
       head 204
@@ -52,7 +60,7 @@ module V2
 
     # Only allow a trusted parameter "white list" through.
     def email_params
-      params.require(:email).permit(:username, :quota, :password, :domain_id)
+      params.require(:email).permit(:username, :quota, :password)
     end
   end
 end

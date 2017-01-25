@@ -126,17 +126,21 @@ curl -iH "Authorization: Token token=2dcc9c915c3a7ff5e2a7cbe0b132f453" http://ap
 
 curl -iH "Authorization: Token token=e8a947943367d7f358794f6141ece2ca" -X POST -H "Content-Type:application/json; charset=utf-8" -d '{ "username": "lau", "quota": 200, "password": "12345678", "domain_id": "ad0674ef-661b-4ab6-8ff3-b791e13c3abb" }' http://api.example.com:3000/v2/emails
 
-curl -iH "Authorization: Token token=e8a947943367d7f358794f6141ece2ca" http://api.example.com:3000/v2/domains/0af0f599-307b-4b28-9d7b-6ca9cfc4e821/emails
-
-curl -iH "Authorization: Token token=e8a947943367d7f358794f6141ece2ca" -X POST -H "Content-Type:application/json; charset=utf-8" -d '{ "username": "lau", "quota": 200, "password": "12345678", "domain_id": "ad0674ef-661b-4ab6-8ff3-b791e13c3abb" }' http://api.example.com:3001/v2/domains/ad0674ef-661b-4ab6-8ff3-b791e13c3abb/emails
-
-
-curl -iH "Authorization: Token token=e8a947943367d7f358794f6141ece2ca" -X POST -H "Content-Type:application/json; charset=utf-8" -d '{ "username": "abc", "quota": 200, "password": "12345678", "domain_id": "0af0f599-307b-4b28-9d7b-6ca9cfc4e821" }' http://api.example.com:3000/v2/domains/0af0f599-307b-4b28-9d7b-6ca9cfc4e821/emails
 
 
 curl -iH "Authorization: Token token=e8a947943367d7f358794f6141ece2ca" -H "Accept: application/json" http://api.example.com:3001/v2/emails/0b44b498-97f9-4674-b6fe-04453bab0438
 
 curl -iH "Authorization: Token token=e8a947943367d7f358794f6141ece2ca" -X DELETE -H "Accept: application/json" http://api.example.com:3000/v2/emails/0b44b498-97f9-4674-b6fe-04453bab0438
+
+
+
+
+
+
+curl -iH "Authorization: Token token=68df92d83bac0c0745c03f93884ca229" http://api.example.com:3000/v2/domains/bc8dabe3-0f41-4d23-a59c-bf52173ac305/emails
+
+curl -iH "Authorization: Token token=68df92d83bac0c0745c03f93884ca229" -X POST -H "Content-Type:application/json; charset=utf-8" -d '{ "username": "lau", "quota": 200, "password": "12345678" }' http://api.example.com:3000/v2/domains/bc8dabe3-0f41-4d23-a59c-bf52173ac305/emails
+
 
 ======
 
