@@ -20,10 +20,12 @@
 #  fk_rails_728c164f32  (domain_id => domains.id) ON DELETE => cascade
 #
 
+# Email Model
 class Email < ApplicationRecord
   # ActiveRecord::Base.include_root_in_json = true
   validates :username, :quota, :password, presence: true
   validates :password, length: { minimum: 8 }
+  validates :username, uniqueness: { case_sensitive: true }
 
   belongs_to :domain, inverse_of: :emails
 
