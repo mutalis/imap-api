@@ -2,12 +2,13 @@
 #
 # Table name: domains
 #
-#  id         :uuid             not null, primary key
-#  name       :string
+#  id         :integer          not null, primary key
+#  name       :string(255)
 #  quota      :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+
 class Domain < ApplicationRecord
   validates :quota, presence: true
   validates :name, length: { minimum: 2 }

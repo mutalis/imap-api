@@ -207,3 +207,17 @@ To automatically annotate every time you run db:migrate, either run rails g anno
 
 @emails = Email.where(domain_id: params[:domain_id])
 puts params[:domain_id]
+
+
+=== Mysql
+
+create database imap_api default character set utf8 collate utf8_unicode_ci;
+
+create database imap_api_test default character set utf8 collate utf8_unicode_ci;
+
+
+GRANT ALL ON imap_api.* TO 'imap_api'@'localhost' IDENTIFIED BY '';
+
+GRANT ALL ON imap_api_test.* TO 'imap_api'@'localhost' IDENTIFIED BY '';
+
+===

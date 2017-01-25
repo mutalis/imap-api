@@ -28,8 +28,6 @@ module ImapApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    # Sets the primary key as UUID
-    config.active_record.primary_key = :uuid
     # Sets the schema format to Sql.
     config.active_record.schema_format = :sql
   end
