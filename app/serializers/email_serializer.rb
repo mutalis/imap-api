@@ -1,6 +1,6 @@
 # EmailSerializer
 class EmailSerializer < ApplicationSerializer
-  attributes :id, :username, :quota, :domain_id
+  attributes :id, :username, :quota
 
   # def default_url_options
   #   { host: 'api.example.com' }
