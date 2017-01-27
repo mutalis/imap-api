@@ -26,7 +26,7 @@ set :deploy_to, "/home/#{fetch(:user)}/#{fetch(:application)}"
 set :pty, true
 
 # Default value for :linked_files is []
-# set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/assets', 'vendor/bundle', 'public/spree')
