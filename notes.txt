@@ -220,4 +220,26 @@ GRANT ALL ON imap_api.* TO 'imap_api'@'localhost' IDENTIFIED BY '';
 
 GRANT ALL ON imap_api_test.* TO 'imap_api'@'localhost' IDENTIFIED BY '';
 
-===
+=== Capistrano
+
+bundle exec cap -T
+
+bundle exec cap production deploy:check
+
+# deploy to the production environment
+$ bundle exec cap production deploy
+
+# simulate deploying to the production environment
+# does not actually do anything
+$ bundle exec cap production deploy --dry-run
+
+# list task dependencies
+$ bundle exec cap production deploy --prereqs
+
+# trace through task invocations
+$ bundle exec cap production deploy --trace
+
+# lists all config variable before deployment tasks
+$ bundle exec cap production deploy --print-config-variables
+
+====
