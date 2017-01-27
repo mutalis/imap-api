@@ -49,7 +49,7 @@ role :db, fetch(:server_name), user: fetch(:user)
 #    auth_methods: %w(password)
 #  }
 set :ssh_options, {
-  keys: %w(/Users/rodolfo/ec2-keys/FBSD11.pem /Users/rodolfo/.ssh/id_rsa),
+  keys: [ENV['PRIVATE_KEY1'], ENV['PRIVATE_KEY2']],
   forward_agent: true,
   auth_methods: %w(publickey password),
   port: 74
