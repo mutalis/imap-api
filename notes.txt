@@ -142,6 +142,11 @@ curl -iH "Authorization: Token token=68df92d83bac0c0745c03f93884ca229" http://ap
 curl -iH "Authorization: Token token=68df92d83bac0c0745c03f93884ca229" -X POST -H "Content-Type:application/json; charset=utf-8" -d '{ "username": "lau", "quota": 200, "password": "12345678" }' http://api.example.com:3000/v2/domains/bc8dabe3-0f41-4d23-a59c-bf52173ac305/emails
 
 
+
+
+curl -iH "Authorization: Token token=64d557ea2758bc6ed1dfea83e4fb6658" -H "Accept: application/json" https://mail.engitel.com.mx/api/v2/domains/84/emails
+
+
 ======
 
 Listing Media Types:
@@ -222,6 +227,11 @@ GRANT ALL ON imap_api_test.* TO 'imap_api'@'localhost' IDENTIFIED BY '';
 
 === Capistrano
 
+https://github.com/capistrano/capistrano/blob/master/README.md
+
+bundle exec cap install
+
+# list all available tasks
 bundle exec cap -T
 
 bundle exec cap production deploy:check
@@ -248,4 +258,11 @@ $ cap production passenger:restart
 # Alternatively:
 $ cap production deploy:restart
 
+
+Antes de hacer deployment debe estar configurado el virtual domain para la App en Apache.
+Con el fin de evitar el siguiente error, al ejecutar $ bundle exec cap production deploy :
+
+passenger:restart
+      01 passenger-config restart-app /home/engitelcms/www.engitel.com.mx --ignore-app-not-running
+      01 *** ERROR: You are not authorized to query the status for this Phusion Passenger instance. Please try again.
 ====
