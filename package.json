@@ -1,6 +1,6 @@
 {
   "name": "cyrus-imap-api-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Cyrus IMAP Api Server for account management via a DB.",
   "main": "server.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mutalis/imap-api"
+    "url": "git+https://github.com/mutalis/imap-api.git"
   },
   "keywords": [
     "cyrus",
