@@ -1,8 +1,8 @@
 {
   "name": "cyrus-imap-api-server",
   "version": "0.0.1",
-  "description": "Cyrus IMAP Api for account management via a DB.",
-  "main": "server.ts",
+  "description": "Cyrus IMAP Api Server for account management via a DB.",
+  "main": "server.js",
   "scripts": {
     "dev": "node-dev server.ts",
     "build": "tsc",
@@ -16,8 +16,8 @@
     "cyrus",
     "imap",
     "api",
-    "account",
-    "management"
+    "server",
+    "account management"
   ],
   "author": "Mutalis",
   "license": "GPL-3.0-or-later",
