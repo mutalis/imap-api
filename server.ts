@@ -4,8 +4,16 @@ import * as trpcExpress from "@trpc/server/adapters/express";
 
 import { db } from "./db";
 import { z } from "zod";
+import cors from "cors";
 
 const app: Express = express();
+app.use(
+  cors({
+    origin: "*", // Allow all origins
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 const port = 3000;
 
 const appRouter = router({
